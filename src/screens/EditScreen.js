@@ -1,10 +1,18 @@
 import React from 'react'
+import {
+    Container,
+    Row,
+    Col,
+    Form,
+    Button
+  } from 'react-bootstrap';
 
 const EditScreen = () => {
     return (
-        <div className="EditScreen_container">
-            This is EditScreen component.
+        <div>
+            EditScreen
         </div>
+
     )
 }
 
