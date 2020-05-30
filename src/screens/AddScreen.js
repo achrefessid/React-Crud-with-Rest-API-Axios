@@ -6,11 +6,13 @@ import {
   Form,
   Button
 } from 'react-bootstrap';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import services from '../services';
 
+
+
 const AddScreen = () => {
-  //const history = useHistory();
+  const history = useHistory();
   const [photoTitle, setPhotoTitle] = useState('');
   const [photoURL, setPhotoURL] = useState('');
 
@@ -24,10 +26,10 @@ const AddScreen = () => {
         photoTitle,
         photoURL,
       };
-      {/*const resp = */} await services.addPhoto(photo);
-      {/*console.log(resp)*/}
+      const resp = await services.addPhoto(photo);
+      console.log(resp)
       alert('Photo added successfully!');
-      //history.replace('/');
+      history.replace('/');
     }catch(error) {
       console.log(error);
       alert('Add photo failed!');
@@ -46,7 +48,6 @@ const AddScreen = () => {
                 placeholder="Enter photo title ..."
                 onChange={e => setPhotoTitle(e.target.value)}
                 value={photoTitle}
-                required
               />
             </Form.Group>
 
@@ -57,7 +58,6 @@ const AddScreen = () => {
                 placeholder="https://example.com/photo.jpg ..."
                 onChange={e => setPhotoURL(e.target.value)}
                 value={photoURL}
-                required
               />
             </Form.Group>
 
@@ -77,4 +77,3 @@ const AddScreen = () => {
 };
 
 export default AddScreen;
-
